@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>كرار • aRRaS</title>
+    <title>علي • حساباتي</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
@@ -42,34 +42,11 @@
             border: 3px solid #1a1e2c;
         }
         .name {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             font-weight: 700;
             background: linear-gradient(135deg, #fff 0%, #a88beb 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-        }
-        .title {
-            font-size: 1.3rem;
-            color: #a88beb;
-            margin-bottom: 20px;
-            font-family: 'El Messiri', sans-serif;
-        }
-        .username {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: rgba(106,17,203,0.2);
-            padding: 12px 30px;
-            border-radius: 50px;
-            margin-bottom: 35px;
-            border: 1px solid rgba(106,17,203,0.5);
-            text-decoration: none;
-            color: white;
-            transition: 0.3s;
-        }
-        .username:hover {
-            background: #6a11cb;
-            transform: translateY(-3px);
         }
         .section-title {
             display: flex;
@@ -77,18 +54,17 @@
             justify-content: center;
             gap: 10px;
             color: #a88beb;
-            margin-bottom: 25px;
+            margin: 30px 0 20px;
             font-size: 1.3rem;
         }
-        .channels {
+        .platforms {
             display: flex;
             flex-direction: column;
             gap: 15px;
         }
-        .channel-link {
+        .platform-link {
             display: flex;
             align-items: center;
-            background: rgba(255,255,255,0.05);
             padding: 15px 20px;
             border-radius: 15px;
             text-decoration: none;
@@ -96,59 +72,74 @@
             transition: 0.3s;
             border: 1px solid rgba(255,255,255,0.1);
         }
-        .channel-link:hover {
-            background: #0088cc;
-            transform: translateX(-10px);
-        }
-        .channel-icon {
-            width: 45px; height: 45px;
-            background: #0088cc;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-left: 15px;
-            font-size: 1.5rem;
-        }
-        .channel-info { flex: 1; text-align: right; }
-        .channel-name { font-size: 1.1rem; font-weight: 600; }
-        .channel-url { font-size: 0.8rem; color: rgba(255,255,255,0.7); direction: ltr; text-align: left; }
-        .footer { margin-top: 30px; color: rgba(255,255,255,0.5); font-size: 0.8rem; }
+        .platform-link i { font-size: 1.5rem; width: 40px; }
+        .platform-info { flex: 1; text-align: right; }
+        .platform-name { font-size: 1.1rem; font-weight: 600; }
+        .platform-username { font-size: 0.8rem; color: rgba(255,255,255,0.7); direction: ltr; text-align: left; }
+        .telegram { background: rgba(0,136,204,0.2); }
+        .telegram:hover { background: #0088cc; transform: translateX(-10px); }
+        .instagram { background: rgba(225,48,108,0.2); }
+        .instagram:hover { background: #e1306c; transform: translateX(-10px); }
+        .tiktok { background: rgba(0,0,0,0.3); }
+        .tiktok:hover { background: #000; transform: translateX(-10px); }
+        .footer { margin-top: 40px; color: rgba(255,255,255,0.5); font-size: 0.8rem; }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="card">
             <div class="profile-img">
-                <img src="https://files.catbox.moe/vffrzb.jpg" alt="كرار">
+                <img src="https://ui-avatars.com/api/?name=Ali&size=150&length=1&background=6a11cb&color=fff" alt="علي">
             </div>
-            <h1 class="name">كرار</h1>
-            <h2 class="title">𓏺 𝖺𝖱𝖱𝖺𝖲</h2>
-            <a href="https://t.me/lx5x5" class="username" target="_blank">
-                <i class="fas fa-at"></i> @lx5x5 <i class="fas fa-external-link-alt"></i>
-            </a>
+            <h1 class="name">علي</h1>
+
             <div class="section-title">
-                <i class="fab fa-telegram"></i> قنواتي على Telegram
+                <i class="fas fa-link"></i> حساباتي على المنصات
             </div>
-            <div class="channels">
-                <a href="https://t.me/InaRaS5" class="channel-link" target="_blank">
-                    <div class="channel-icon"><i class="fab fa-telegram"></i></div>
-                    <div class="channel-info">
-                        <div class="channel-name">القناة الأولى</div>
-                        <div class="channel-url">t.me/InaRaS5</div>
+
+            <div class="platforms">
+                <!-- 1. Telegram - الأول -->
+                <a href="https://t.me/MM44ZZ" class="platform-link telegram" target="_blank">
+                    <i class="fab fa-telegram"></i>
+                    <div class="platform-info">
+                        <div class="platform-name">Telegram</div>
+                        <div class="platform-username">@MM44ZZ</div>
                     </div>
-                    <div class="channel-arrow"><i class="fas fa-arrow-left"></i></div>
+                    <div><i class="fas fa-arrow-left"></i></div>
                 </a>
-                <a href="https://t.me/InaRaS3" class="channel-link" target="_blank">
-                    <div class="channel-icon"><i class="fab fa-telegram"></i></div>
-                    <div class="channel-info">
-                        <div class="channel-name">القناة الثانية</div>
-                        <div class="channel-url">t.me/InaRaS3</div>
+                <!-- 2. Instagram - الثاني -->
+                <a href="https://www.instagram.com/5o___f" class="platform-link instagram" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                    <div class="platform-info">
+                        <div class="platform-name">Instagram</div>
+                        <div class="platform-username">@5o___f</div>
                     </div>
-                    <div class="channel-arrow"><i class="fas fa-arrow-left"></i></div>
+                    <div><i class="fas fa-arrow-left"></i></div>
+                </a>
+                <!-- 3. TikTok - الثالث -->
+                <a href="https://www.tiktok.com/@1lv3" class="platform-link tiktok" target="_blank">
+                    <i class="fab fa-tiktok"></i>
+                    <div class="platform-info">
+                        <div class="platform-name">TikTok</div>
+                        <div class="platform-username">@1lv3</div>
+                    </div>
+                    <div><i class="fas fa-arrow-left"></i></div>
                 </a>
             </div>
-            <div class="footer"><i class="fas fa-bolt"></i> نبض تليجرام</div>
+            <!-- قناة التليكرام الخاصة -->
+            <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">
+                <a href="https://t.me/Iwllwwl" class="platform-link telegram" target="_blank" style="background: rgba(0,136,204,0.1);">
+                    <i class="fas fa-broadcast-tower"></i>
+                    <div class="platform-info">
+                        <div class="platform-name">قناة ادوات بايثون</div>
+                        <div class="platform-username">t.me/Iwllwwl</div>
+                    </div>
+                    <div><i class="fas fa-arrow-left"></i></div>
+                </a>
+            </div>
+            <div class="footer">
+                <i class="fas fa-user"></i> علي • 5o___f
+            </div>
         </div>
     </div>
 </body>
