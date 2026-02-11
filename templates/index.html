@@ -3,176 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الملف الشخصي - {{ user.name }}</title>
-    <!-- Font Awesome -->
+    <title>كرار • aRRaS</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=El+Messiri:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- CSS الخاص -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(145deg, #0b0c10 0%, #1a1e2c 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: #fff;
+        }
+        .container { max-width: 500px; width: 100%; }
+        .card {
+            background: rgba(20, 25, 35, 0.95);
+            border-radius: 30px;
+            padding: 40px 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+        }
+        .profile-img {
+            width: 140px; height: 140px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            border: 4px solid #6a11cb;
+            padding: 4px;
+            background: #1a1e2c;
+        }
+        .profile-img img {
+            width: 100%; height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #1a1e2c;
+        }
+        .name {
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #fff 0%, #a88beb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .title {
+            font-size: 1.3rem;
+            color: #a88beb;
+            margin-bottom: 20px;
+            font-family: 'El Messiri', sans-serif;
+        }
+        .username {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(106,17,203,0.2);
+            padding: 12px 30px;
+            border-radius: 50px;
+            margin-bottom: 35px;
+            border: 1px solid rgba(106,17,203,0.5);
+            text-decoration: none;
+            color: white;
+            transition: 0.3s;
+        }
+        .username:hover {
+            background: #6a11cb;
+            transform: translateY(-3px);
+        }
+        .section-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            color: #a88beb;
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+        }
+        .channels {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .channel-link {
+            display: flex;
+            align-items: center;
+            background: rgba(255,255,255,0.05);
+            padding: 15px 20px;
+            border-radius: 15px;
+            text-decoration: none;
+            color: white;
+            transition: 0.3s;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .channel-link:hover {
+            background: #0088cc;
+            transform: translateX(-10px);
+        }
+        .channel-icon {
+            width: 45px; height: 45px;
+            background: #0088cc;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 15px;
+            font-size: 1.5rem;
+        }
+        .channel-info { flex: 1; text-align: right; }
+        .channel-name { font-size: 1.1rem; font-weight: 600; }
+        .channel-url { font-size: 0.8rem; color: rgba(255,255,255,0.7); direction: ltr; text-align: left; }
+        .footer { margin-top: 30px; color: rgba(255,255,255,0.5); font-size: 0.8rem; }
+    </style>
 </head>
 <body>
     <div class="container">
-        <!-- الشريط العلوي -->
-        <header class="header">
-            <div class="logo">
-                <i class="fas fa-user-circle"></i>
-                <span>الملف الشخصي</span>
+        <div class="card">
+            <div class="profile-img">
+                <img src="https://files.catbox.moe/vffrzb.jpg" alt="كرار">
             </div>
-            <div class="theme-toggle">
-                <span>الوضع الليلي</span>
-                <div class="toggle-switch">
-                    <input type="checkbox" id="themeToggle">
-                    <label for="themeToggle" class="toggle-slider"></label>
-                </div>
+            <h1 class="name">كرار</h1>
+            <h2 class="title">𓏺 𝖺𝖱𝖱𝖺𝖲</h2>
+            <a href="https://t.me/lx5x5" class="username" target="_blank">
+                <i class="fas fa-at"></i> @lx5x5 <i class="fas fa-external-link-alt"></i>
+            </a>
+            <div class="section-title">
+                <i class="fab fa-telegram"></i> قنواتي على Telegram
             </div>
-        </header>
-
-        <!-- محتوى الصفحة -->
-        <main class="main-content">
-            <!-- بطاقة الملف الشخصي -->
-            <div class="profile-card">
-                <div class="profile-header">
-                    <div class="profile-image">
-                        <img src="{{ user.profile_image }}" alt="صورة الملف الشخصي" id="profileImg">
-                        <div class="online-status"></div>
+            <div class="channels">
+                <a href="https://t.me/InaRaS5" class="channel-link" target="_blank">
+                    <div class="channel-icon"><i class="fab fa-telegram"></i></div>
+                    <div class="channel-info">
+                        <div class="channel-name">القناة الأولى</div>
+                        <div class="channel-url">t.me/InaRaS5</div>
                     </div>
-                    <div class="profile-info">
-                        <h1 class="profile-name">{{ user.name }}</h1>
-                        <h2 class="profile-title">{{ user.title }}</h2>
-                        <div class="profile-username">
-                            <i class="fas fa-at"></i>
-                            <span>{{ user.username }}</span>
-                        </div>
+                    <div class="channel-arrow"><i class="fas fa-arrow-left"></i></div>
+                </a>
+                <a href="https://t.me/InaRaS3" class="channel-link" target="_blank">
+                    <div class="channel-icon"><i class="fab fa-telegram"></i></div>
+                    <div class="channel-info">
+                        <div class="channel-name">القناة الثانية</div>
+                        <div class="channel-url">t.me/InaRaS3</div>
                     </div>
-                </div>
-
-                <!-- معلومات القنوات -->
-                <div class="channels-section">
-                    <h3 class="section-title">
-                        <i class="fas fa-broadcast-tower"></i>
-                        قنواتي على Telegram
-                    </h3>
-                    <div class="channels-list">
-                        {% for channel in user.channels %}
-                        <a href="{{ channel.url }}" class="channel-card" target="_blank">
-                            <div class="channel-icon">
-                                <i class="{{ channel.icon }}"></i>
-                            </div>
-                            <div class="channel-info">
-                                <h4>{{ channel.name }}</h4>
-                                <p>{{ channel.url }}</p>
-                            </div>
-                            <div class="channel-arrow">
-                                <i class="fas fa-external-link-alt"></i>
-                            </div>
-                        </a>
-                        {% endfor %}
-                    </div>
-                </div>
-
-                <!-- روابط التواصل الاجتماعي -->
-                <div class="social-section">
-                    <h3 class="section-title">
-                        <i class="fas fa-share-alt"></i>
-                        روابط التواصل
-                    </h3>
-                    <div class="social-links">
-                        {% for link in user.social_links %}
-                        <a href="{{ link.url }}" class="social-link" target="_blank" style="background-color: {{ link.color }};">
-                            <i class="{{ link.icon }}"></i>
-                            <span>{{ link.name }}</span>
-                        </a>
-                        {% endfor %}
-                    </div>
-                </div>
-
-                <!-- الإحصائيات -->
-                <div class="stats-section">
-                    <h3 class="section-title">
-                        <i class="fas fa-chart-line"></i>
-                        الإحصائيات
-                    </h3>
-                    <div class="stats-grid">
-                        <div class="stat-item">
-                            <div class="stat-icon">
-                                <i class="fas fa-eye"></i>
-                            </div>
-                            <div class="stat-info">
-                                <h4>المشاهدات</h4>
-                                <p class="stat-value" data-target="1250">0</p>
-                            </div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-icon">
-                                <i class="fas fa-users"></i>
-                            </div>
-                            <div class="stat-info">
-                                <h4>المتابعون</h4>
-                                <p class="stat-value" data-target="850">0</p>
-                            </div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-icon">
-                                <i class="fas fa-heart"></i>
-                            </div>
-                            <div class="stat-info">
-                                <h4>الإعجابات</h4>
-                                <p class="stat-value" data-target="320">0</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    <div class="channel-arrow"><i class="fas fa-arrow-left"></i></div>
+                </a>
             </div>
-
-            <!-- معلومات إضافية -->
-            <div class="info-card">
-                <h3 class="section-title">
-                    <i class="fas fa-info-circle"></i>
-                    معلومات عني
-                </h3>
-                <div class="bio">
-                    <p>مرحبًا! أنا {{ user.name }} ({{ user.title }})</p>
-                    <p>أشارك محتوى مميز على قنوات Telegram الخاصة بي</p>
-                    <p>يمكنكم متابعتي على {{ user.username }} للتواصل معي</p>
-                </div>
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-calendar-alt"></i>
-                        <span>تاريخ الانضمام: يناير 2023</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>الموقع: عالمي</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-globe"></i>
-                        <span>اللغة: العربية</span>
-                    </div>
-                </div>
-                <div class="action-buttons">
-                    <a href="/update" class="btn btn-primary">
-                        <i class="fas fa-edit"></i>
-                        تعديل الملف الشخصي
-                    </a>
-                    <button class="btn btn-secondary" id="shareBtn">
-                        <i class="fas fa-share"></i>
-                        مشاركة الملف
-                    </button>
-                </div>
-            </div>
-        </main>
-
-        <!-- التذييل -->
-        <footer class="footer">
-            <p>تم التصميم باستخدام Python Flask <i class="fas fa-heart"></i></p>
-            <p>جميع الحقوق محفوظة © 2023</p>
-        </footer>
+            <div class="footer"><i class="fas fa-bolt"></i> نبض تليجرام</div>
+        </div>
     </div>
-
-    <!-- JavaScript الخاص -->
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
