@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تعديل الملف الشخصي</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        .update-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid var(--gray-color);
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+            background-color: var(--light-color);
+            color: var(--text-color);
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(106, 17, 203, 0.2);
+        }
+        
+        .form-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-light);
+            text-decoration: none;
+            margin-bottom: 20px;
+            transition: var(--transition);
+        }
+        
+        .back-link:hover {
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-user-edit"></i>
+                <span>تعديل الملف الشخصي</span>
+            </div>
+            <a href="/" class="back-link">
+                <i class="fas fa-arrow-right"></i>
+                العودة للرئيسية
+            </a>
+        </header>
+        
+        <div class="profile-card update-container">
+            <form method="POST" action="/update">
+                <div class="form-group">
+                    <label class="form-label" for="name">الاسم</label>
+                    <input type="text" id="name" name="name" class="form-input" value="{{ user.name }}" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="title">اللقب</label>
+                    <input type="text" id="title" name="title" class="form-input" value="{{ user.title }}" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="username">اسم المستخدم</label>
+                    <input type="text" id="username" name="username" class="form-input" value="{{ user.username }}" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="profile_image">رابط الصورة الشخصية</label>
+                    <input type="url" id="profile_image" name="profile_image" class="form-input" value="{{ user.profile_image }}">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="channel1">رابط القناة الأولى</label>
+                    <input type="url" id="channel1" name="channel1" class="form-input" value="{{ user.channels[0].url }}">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="channel2">رابط القناة الثانية</label>
+                    <input type="url" id="channel2" name="channel2" class="form-input" value="{{ user.channels[1].url }}">
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i>
+                        حفظ التغييرات
+                    </button>
+                    <a href="/" class="btn btn-secondary">
+                        <i class="fas fa-times"></i>
+                        إلغاء
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
