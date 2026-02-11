@@ -4,143 +4,293 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>علي • حساباتي</title>
+    <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
             font-family: 'Cairo', sans-serif;
-            background: linear-gradient(145deg, #0b0c10 0%, #1a1e2c 100%);
+            background: linear-gradient(145deg, #0d0f14 0%, #1a1e2a 100%);
             min-height: 100vh;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             padding: 20px;
             color: #fff;
         }
-        .container { max-width: 500px; width: 100%; }
-        .card {
-            background: rgba(20, 25, 35, 0.95);
-            border-radius: 30px;
-            padding: 40px 30px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-            border: 1px solid rgba(255,255,255,0.1);
+        .container {
+            max-width: 1100px;
+            width: 100%;
             text-align: center;
         }
-        .profile-img {
-            width: 140px; height: 140px;
-            border-radius: 50%;
-            margin: 0 auto 20px;
-            border: 4px solid #6a11cb;
-            padding: 4px;
-            background: #1a1e2c;
-        }
-        .profile-img img {
-            width: 100%; height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid #1a1e2c;
-        }
-        .name {
-            font-size: 2.5rem;
+        /* الاسم الرئيسي */
+        .main-title {
+            font-size: 3rem;
             font-weight: 700;
-            background: linear-gradient(135deg, #fff 0%, #a88beb 100%);
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, #ffd166, #a88beb);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(168, 139, 235, 0.3);
         }
-        .section-title {
+        /* شبكة البطاقات */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        /* بطاقة المنصة */
+        .card {
+            background: rgba(30, 35, 48, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            padding: 30px 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+        }
+        /* لون كل بطاقة حسب المنصة */
+        .card-telegram {
+            border-top: 5px solid #0088cc;
+        }
+        .card-instagram {
+            border-top: 5px solid #e1306c;
+        }
+        .card-tiktok {
+            border-top: 5px solid #000;
+        }
+        /* صورة الحساب */
+        .profile-pic {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        /* اسم المستخدم */
+        .username {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .username i {
+            font-size: 1.5rem;
+        }
+        /* رابط الحساب (أيقونة كبيرة) */
+        .account-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: white;
+            font-size: 1.2rem;
+            gap: 10px;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            width: 100%;
+        }
+        .card-telegram .account-link:hover {
+            background: #0088cc;
+            border-color: #0088cc;
+        }
+        .card-instagram .account-link:hover {
+            background: #e1306c;
+            border-color: #e1306c;
+        }
+        .card-tiktok .account-link:hover {
+            background: #000;
+            border-color: #fff;
+        }
+        /* أيقونة صغيرة */
+        .platform-icon {
+            font-size: 1.8rem;
+        }
+        /* رابط القناة الإضافي */
+        .channel-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: #0088cc;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .channel-link:hover {
+            color: #fff;
+            text-shadow: 0 0 8px #0088cc;
+        }
+        /* زر التحكم بالصوت */
+        .audio-control {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(5px);
+            padding: 15px 25px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            z-index: 999;
+        }
+        .audio-btn {
+            background: #6a11cb;
+            border: none;
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            color: #a88beb;
-            margin: 30px 0 20px;
             font-size: 1.3rem;
-        }
-        .platforms {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        .platform-link {
-            display: flex;
-            align-items: center;
-            padding: 15px 20px;
-            border-radius: 15px;
-            text-decoration: none;
-            color: white;
+            cursor: pointer;
             transition: 0.3s;
-            border: 1px solid rgba(255,255,255,0.1);
         }
-        .platform-link i { font-size: 1.5rem; width: 40px; }
-        .platform-info { flex: 1; text-align: right; }
-        .platform-name { font-size: 1.1rem; font-weight: 600; }
-        .platform-username { font-size: 0.8rem; color: rgba(255,255,255,0.7); direction: ltr; text-align: left; }
-        .telegram { background: rgba(0,136,204,0.2); }
-        .telegram:hover { background: #0088cc; transform: translateX(-10px); }
-        .instagram { background: rgba(225,48,108,0.2); }
-        .instagram:hover { background: #e1306c; transform: translateX(-10px); }
-        .tiktok { background: rgba(0,0,0,0.3); }
-        .tiktok:hover { background: #000; transform: translateX(-10px); }
-        .footer { margin-top: 40px; color: rgba(255,255,255,0.5); font-size: 0.8rem; }
+        .audio-btn:hover {
+            background: #8a2be2;
+            transform: scale(1.1);
+        }
+        .footer {
+            margin-top: 30px;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+        @media (max-width: 700px) {
+            .main-title { font-size: 2.5rem; }
+            .cards-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
+
+    <!-- عنصر الصوت (مخفي) - ضع ملف الصوت في المسار المناسب -->
+    <audio id="bgAudio" loop>
+        <!-- إذا كنت تستخدم Flask: -->
+        <source src="{{ url_for('static', filename='audio/welcome.mp3') }}" type="audio/mpeg">
+        <!-- إذا كان موقعًا ثابتًا: استخدم src="audio/welcome.mp3" -->
+        متصفحك لا يدعم تشغيل الصوت.
+    </audio>
+
+    <!-- زر التحكم بالصوت -->
+    <div class="audio-control">
+        <button id="playPauseBtn" class="audio-btn">
+            <i class="fas fa-play"></i>
+        </button>
+        <span style="color: white;">شغّل الترحيب</span>
+    </div>
+
     <div class="container">
-        <div class="card">
-            <div class="profile-img">
-                <img src="https://ui-avatars.com/api/?name=Ali&size=150&length=1&background=6a11cb&color=fff" alt="علي">
-            </div>
-            <h1 class="name">علي</h1>
+        <!-- اسمك الرئيسي -->
+        <h1 class="main-title">علي</h1>
 
-            <div class="section-title">
-                <i class="fas fa-link"></i> حساباتي على المنصات
+        <!-- بطاقات المنصات الثلاث -->
+        <div class="cards-grid">
+            
+            <!-- 1. بطاقة تليكرام -->
+            <div class="card card-telegram">
+                <!-- ضع صورة حساب التليكرام في static/images/telegram.jpg أو استخدم رابط خارجي -->
+                <img src="{{ url_for('static', filename='images/telegram.jpg') }}" alt="Telegram" class="profile-pic">
+                <div class="username">
+                    <i class="fab fa-telegram" style="color: #0088cc;"></i>
+                    @MM44ZZ
+                </div>
+                <a href="https://t.me/MM44ZZ" class="account-link" target="_blank">
+                    <i class="fab fa-telegram platform-icon"></i>
+                    <span>رابط الحساب</span>
+                    <i class="fas fa-external-link-alt"></i>
+                </a>
+                <!-- رابط القناة -->
+                <a href="https://t.me/Iwllwwl" class="channel-link" target="_blank">
+                    <i class="fas fa-broadcast-tower"></i> قناة ادوات بايثون
+                </a>
             </div>
 
-            <div class="platforms">
-                <!-- 1. Telegram - الأول -->
-                <a href="https://t.me/MM44ZZ" class="platform-link telegram" target="_blank">
-                    <i class="fab fa-telegram"></i>
-                    <div class="platform-info">
-                        <div class="platform-name">Telegram</div>
-                        <div class="platform-username">@MM44ZZ</div>
-                    </div>
-                    <div><i class="fas fa-arrow-left"></i></div>
+            <!-- 2. بطاقة إنستغرام -->
+            <div class="card card-instagram">
+                <img src="{{ url_for('static', filename='images/instagram.jpg') }}" alt="Instagram" class="profile-pic">
+                <div class="username">
+                    <i class="fab fa-instagram" style="color: #e1306c;"></i>
+                    @5o___f
+                </div>
+                <a href="https://www.instagram.com/5o___f" class="account-link" target="_blank">
+                    <i class="fab fa-instagram platform-icon"></i>
+                    <span>رابط الحساب</span>
+                    <i class="fas fa-external-link-alt"></i>
                 </a>
-                <!-- 2. Instagram - الثاني -->
-                <a href="https://www.instagram.com/5o___f" class="platform-link instagram" target="_blank">
-                    <i class="fab fa-instagram"></i>
-                    <div class="platform-info">
-                        <div class="platform-name">Instagram</div>
-                        <div class="platform-username">@5o___f</div>
-                    </div>
-                    <div><i class="fas fa-arrow-left"></i></div>
-                </a>
-                <!-- 3. TikTok - الثالث -->
-                <a href="https://www.tiktok.com/@1lv3" class="platform-link tiktok" target="_blank">
+            </div>
+
+            <!-- 3. بطاقة تيك توك -->
+            <div class="card card-tiktok">
+                <img src="{{ url_for('static', filename='images/tiktok.jpg') }}" alt="TikTok" class="profile-pic">
+                <div class="username">
                     <i class="fab fa-tiktok"></i>
-                    <div class="platform-info">
-                        <div class="platform-name">TikTok</div>
-                        <div class="platform-username">@1lv3</div>
-                    </div>
-                    <div><i class="fas fa-arrow-left"></i></div>
+                    @1lv3
+                </div>
+                <a href="https://www.tiktok.com/@1lv3" class="account-link" target="_blank">
+                    <i class="fab fa-tiktok platform-icon"></i>
+                    <span>رابط الحساب</span>
+                    <i class="fas fa-external-link-alt"></i>
                 </a>
-            </div>
-            <!-- قناة التليكرام الخاصة -->
-            <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">
-                <a href="https://t.me/Iwllwwl" class="platform-link telegram" target="_blank" style="background: rgba(0,136,204,0.1);">
-                    <i class="fas fa-broadcast-tower"></i>
-                    <div class="platform-info">
-                        <div class="platform-name">قناة ادوات بايثون</div>
-                        <div class="platform-username">t.me/Iwllwwl</div>
-                    </div>
-                    <div><i class="fas fa-arrow-left"></i></div>
-                </a>
-            </div>
-            <div class="footer">
-                <i class="fas fa-user"></i> علي • 5o___f
             </div>
         </div>
+
+        <div class="footer">
+            <i class="fas fa-headphones-alt"></i> استمتع بزيارتك 
+        </div>
     </div>
+
+    <script>
+        // التحكم بالصوت (تشغيل/إيقاف)
+        const audio = document.getElementById('bgAudio');
+        const playBtn = document.getElementById('playPauseBtn');
+        const icon = playBtn.querySelector('i');
+
+        // محاولة التشغيل التلقائي (لن تعمل بسبب سياسات المتصفح، لكن الزر يعمل)
+        audio.play().catch(() => {
+            // إذا منع المتصفح التشغيل، نضبط الزر على "تشغيل"
+            icon.classList.remove('fa-pause');
+            icon.classList.add('fa-play');
+        });
+
+        // عند الضغط على الزر
+        playBtn.addEventListener('click', function() {
+            if (audio.paused) {
+                audio.play();
+                icon.classList.remove('fa-play');
+                icon.classList.add('fa-pause');
+                playBtn.nextElementSibling.textContent = 'إيقاف الترحيب';
+            } else {
+                audio.pause();
+                icon.classList.remove('fa-pause');
+                icon.classList.add('fa-play');
+                playBtn.nextElementSibling.textContent = 'شغّل الترحيب';
+            }
+        });
+    </script>
 </body>
 </html>
