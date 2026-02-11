@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الملف الشخصي - {{ user.name }}</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=El+Messiri:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- CSS الخاص -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- الشريط العلوي -->
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-user-circle"></i>
+                <span>الملف الشخصي</span>
+            </div>
+            <div class="theme-toggle">
+                <span>الوضع الليلي</span>
+                <div class="toggle-switch">
+                    <input type="checkbox" id="themeToggle">
+                    <label for="themeToggle" class="toggle-slider"></label>
+                </div>
+            </div>
+        </header>
+
+        <!-- محتوى الصفحة -->
+        <main class="main-content">
+            <!-- بطاقة الملف الشخصي -->
+            <div class="profile-card">
+                <div class="profile-header">
+                    <div class="profile-image">
+                        <img src="{{ user.profile_image }}" alt="صورة الملف الشخصي" id="profileImg">
+                        <div class="online-status"></div>
+                    </div>
+                    <div class="profile-info">
+                        <h1 class="profile-name">{{ user.name }}</h1>
+                        <h2 class="profile-title">{{ user.title }}</h2>
+                        <div class="profile-username">
+                            <i class="fas fa-at"></i>
+                            <span>{{ user.username }}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- معلومات القنوات -->
+                <div class="channels-section">
+                    <h3 class="section-title">
+                        <i class="fas fa-broadcast-tower"></i>
+                        قنواتي على Telegram
+                    </h3>
+                    <div class="channels-list">
+                        {% for channel in user.channels %}
+                        <a href="{{ channel.url }}" class="channel-card" target="_blank">
+                            <div class="channel-icon">
+                                <i class="{{ channel.icon }}"></i>
+                            </div>
+                            <div class="channel-info">
+                                <h4>{{ channel.name }}</h4>
+                                <p>{{ channel.url }}</p>
+                            </div>
+                            <div class="channel-arrow">
+                                <i class="fas fa-external-link-alt"></i>
+                            </div>
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <!-- روابط التواصل الاجتماعي -->
+                <div class="social-section">
+                    <h3 class="section-title">
+                        <i class="fas fa-share-alt"></i>
+                        روابط التواصل
+                    </h3>
+                    <div class="social-links">
+                        {% for link in user.social_links %}
+                        <a href="{{ link.url }}" class="social-link" target="_blank" style="background-color: {{ link.color }};">
+                            <i class="{{ link.icon }}"></i>
+                            <span>{{ link.name }}</span>
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <!-- الإحصائيات -->
+                <div class="stats-section">
+                    <h3 class="section-title">
+                        <i class="fas fa-chart-line"></i>
+                        الإحصائيات
+                    </h3>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h4>المشاهدات</h4>
+                                <p class="stat-value" data-target="1250">0</p>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h4>المتابعون</h4>
+                                <p class="stat-value" data-target="850">0</p>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h4>الإعجابات</h4>
+                                <p class="stat-value" data-target="320">0</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- معلومات إضافية -->
+            <div class="info-card">
+                <h3 class="section-title">
+                    <i class="fas fa-info-circle"></i>
+                    معلومات عني
+                </h3>
+                <div class="bio">
+                    <p>مرحبًا! أنا {{ user.name }} ({{ user.title }})</p>
+                    <p>أشارك محتوى مميز على قنوات Telegram الخاصة بي</p>
+                    <p>يمكنكم متابعتي على {{ user.username }} للتواصل معي</p>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>تاريخ الانضمام: يناير 2023</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>الموقع: عالمي</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-globe"></i>
+                        <span>اللغة: العربية</span>
+                    </div>
+                </div>
+                <div class="action-buttons">
+                    <a href="/update" class="btn btn-primary">
+                        <i class="fas fa-edit"></i>
+                        تعديل الملف الشخصي
+                    </a>
+                    <button class="btn btn-secondary" id="shareBtn">
+                        <i class="fas fa-share"></i>
+                        مشاركة الملف
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <!-- التذييل -->
+        <footer class="footer">
+            <p>تم التصميم باستخدام Python Flask <i class="fas fa-heart"></i></p>
+            <p>جميع الحقوق محفوظة © 2023</p>
+        </footer>
+    </div>
+
+    <!-- JavaScript الخاص -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
