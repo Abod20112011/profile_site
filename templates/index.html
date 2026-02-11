@@ -16,7 +16,7 @@
         }
         body {
             font-family: 'Cairo', sans-serif;
-            background: linear-gradient(145deg, #0d0f14 0%, #1a1e2a 100%);
+            background: linear-gradient(145deg, #0b1c2f 0%, #1a2f3f 100%);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -30,16 +30,18 @@
             width: 100%;
             text-align: center;
         }
-        /* الاسم الرئيسي */
+
+        /* الاسم الرئيسي – تدرج أزرق بدل البنفسجي */
         .main-title {
             font-size: 3rem;
             font-weight: 700;
             margin-bottom: 40px;
-            background: linear-gradient(135deg, #ffd166, #a88beb);
+            background: linear-gradient(135deg, #00c6fb, #005bea);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 20px rgba(168, 139, 235, 0.3);
+            text-shadow: 0 0 20px rgba(0, 91, 234, 0.3);
         }
+
         /* شبكة البطاقات */
         .cards-grid {
             display: grid;
@@ -47,9 +49,10 @@
             gap: 30px;
             margin-bottom: 50px;
         }
+
         /* بطاقة المنصة */
         .card {
-            background: rgba(30, 35, 48, 0.8);
+            background: rgba(20, 30, 45, 0.85);
             backdrop-filter: blur(10px);
             border-radius: 30px;
             padding: 30px 20px;
@@ -64,16 +67,12 @@
             transform: translateY(-10px);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
         }
-        /* لون كل بطاقة حسب المنصة */
-        .card-telegram {
-            border-top: 5px solid #0088cc;
-        }
-        .card-instagram {
-            border-top: 5px solid #e1306c;
-        }
-        .card-tiktok {
-            border-top: 5px solid #000;
-        }
+
+        /* ألوان البطاقات (بدون بنفسجي) */
+        .card-telegram { border-top: 5px solid #0088cc; }
+        .card-instagram { border-top: 5px solid #e1306c; }
+        .card-tiktok { border-top: 5px solid #000; }
+
         /* صورة الحساب */
         .profile-pic {
             width: 140px;
@@ -84,6 +83,7 @@
             margin-bottom: 20px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
+
         /* اسم المستخدم */
         .username {
             font-size: 1.8rem;
@@ -93,72 +93,64 @@
             align-items: center;
             gap: 5px;
         }
-        .username i {
-            font-size: 1.5rem;
-        }
-        /* رابط الحساب (أيقونة كبيرة) */
-        .account-link {
+        .username i { font-size: 1.5rem; }
+
+        /* أيقونة رابط الحساب فقط (بدون نص) */
+        .account-icon {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             background: rgba(255, 255, 255, 0.1);
-            padding: 12px 25px;
-            border-radius: 50px;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
             text-decoration: none;
             color: white;
-            font-size: 1.2rem;
-            gap: 10px;
-            margin-top: 15px;
+            font-size: 1.8rem;
             transition: all 0.3s ease;
             border: 1px solid rgba(255, 255, 255, 0.2);
-            width: 100%;
+            margin-top: 15px;
         }
-        .card-telegram .account-link:hover {
-            background: #0088cc;
-            border-color: #0088cc;
-        }
-        .card-instagram .account-link:hover {
-            background: #e1306c;
-            border-color: #e1306c;
-        }
-        .card-tiktok .account-link:hover {
-            background: #000;
-            border-color: #fff;
-        }
-        /* أيقونة صغيرة */
-        .platform-icon {
-            font-size: 1.8rem;
-        }
-        /* رابط القناة الإضافي */
+        .card-telegram .account-icon:hover { background: #0088cc; }
+        .card-instagram .account-icon:hover { background: #e1306c; }
+        .card-tiktok .account-icon:hover { background: #000; }
+
+        /* رابط القناة */
         .channel-link {
             display: inline-block;
-            margin-top: 15px;
-            color: #0088cc;
-            font-size: 0.95rem;
+            margin-top: 20px;
+            color: #00c6fb;
+            font-size: 1rem;
             text-decoration: none;
             transition: 0.3s;
+            padding: 8px 20px;
+            border-radius: 50px;
+            background: rgba(0, 198, 251, 0.1);
+            border: 1px solid rgba(0, 198, 251, 0.3);
         }
         .channel-link:hover {
-            color: #fff;
-            text-shadow: 0 0 8px #0088cc;
+            background: #0088cc;
+            color: white;
+            border-color: #0088cc;
         }
+
         /* زر التحكم بالصوت */
         .audio-control {
             position: fixed;
             bottom: 30px;
             left: 30px;
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(0, 91, 234, 0.2);
             backdrop-filter: blur(5px);
             padding: 15px 25px;
             border-radius: 50px;
             display: flex;
             align-items: center;
             gap: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(0, 198, 251, 0.3);
             z-index: 999;
         }
         .audio-btn {
-            background: #6a11cb;
+            background: #005bea;
             border: none;
             color: white;
             width: 45px;
@@ -172,14 +164,16 @@
             transition: 0.3s;
         }
         .audio-btn:hover {
-            background: #8a2be2;
+            background: #00c6fb;
             transform: scale(1.1);
         }
+
         .footer {
             margin-top: 30px;
             color: rgba(255, 255, 255, 0.5);
             font-size: 0.9rem;
         }
+
         @media (max-width: 700px) {
             .main-title { font-size: 2.5rem; }
             .cards-grid { grid-template-columns: 1fr; }
@@ -188,11 +182,9 @@
 </head>
 <body>
 
-    <!-- عنصر الصوت (مخفي) - ضع ملف الصوت في المسار المناسب -->
+    <!-- عنصر الصوت – المسار الصحيح لملف welcome.mp3 -->
     <audio id="bgAudio" loop>
-        <!-- إذا كنت تستخدم Flask: -->
         <source src="{{ url_for('static', filename='audio/welcome.mp3') }}" type="audio/mpeg">
-        <!-- إذا كان موقعًا ثابتًا: استخدم src="audio/welcome.mp3" -->
         متصفحك لا يدعم تشغيل الصوت.
     </audio>
 
@@ -213,18 +205,17 @@
             
             <!-- 1. بطاقة تليكرام -->
             <div class="card card-telegram">
-                <!-- ضع صورة حساب التليكرام في static/images/telegram.jpg أو استخدم رابط خارجي -->
-                <img src="{{ url_for('static', filename='images/telegram.jpg') }}" alt="Telegram" class="profile-pic">
+                <!-- الصورة: telegram_profile.jpg -->
+                <img src="{{ url_for('static', filename='images/telegram_profile.jpg') }}" alt="Telegram" class="profile-pic">
                 <div class="username">
                     <i class="fab fa-telegram" style="color: #0088cc;"></i>
                     @MM44ZZ
                 </div>
-                <a href="https://t.me/MM44ZZ" class="account-link" target="_blank">
-                    <i class="fab fa-telegram platform-icon"></i>
-                    <span>رابط الحساب</span>
+                <!-- أيقونة رابط الحساب فقط -->
+                <a href="https://t.me/MM44ZZ" class="account-icon" target="_blank">
                     <i class="fas fa-external-link-alt"></i>
                 </a>
-                <!-- رابط القناة -->
+                <!-- رابط قناة ادوات بايثون -->
                 <a href="https://t.me/Iwllwwl" class="channel-link" target="_blank">
                     <i class="fas fa-broadcast-tower"></i> قناة ادوات بايثون
                 </a>
@@ -232,52 +223,47 @@
 
             <!-- 2. بطاقة إنستغرام -->
             <div class="card card-instagram">
-                <img src="{{ url_for('static', filename='images/instagram.jpg') }}" alt="Instagram" class="profile-pic">
+                <!-- الصورة: instagram_profile.jpg -->
+                <img src="{{ url_for('static', filename='images/instagram_profile.jpg') }}" alt="Instagram" class="profile-pic">
                 <div class="username">
                     <i class="fab fa-instagram" style="color: #e1306c;"></i>
                     @5o___f
                 </div>
-                <a href="https://www.instagram.com/5o___f" class="account-link" target="_blank">
-                    <i class="fab fa-instagram platform-icon"></i>
-                    <span>رابط الحساب</span>
+                <a href="https://www.instagram.com/5o___f" class="account-icon" target="_blank">
                     <i class="fas fa-external-link-alt"></i>
                 </a>
             </div>
 
             <!-- 3. بطاقة تيك توك -->
             <div class="card card-tiktok">
-                <img src="{{ url_for('static', filename='images/tiktok.jpg') }}" alt="TikTok" class="profile-pic">
+                <!-- الصورة: tiktok_profile.jpg -->
+                <img src="{{ url_for('static', filename='images/tiktok_profile.jpg') }}" alt="TikTok" class="profile-pic">
                 <div class="username">
                     <i class="fab fa-tiktok"></i>
                     @1lv3
                 </div>
-                <a href="https://www.tiktok.com/@1lv3" class="account-link" target="_blank">
-                    <i class="fab fa-tiktok platform-icon"></i>
-                    <span>رابط الحساب</span>
+                <a href="https://www.tiktok.com/@1lv3" class="account-icon" target="_blank">
                     <i class="fas fa-external-link-alt"></i>
                 </a>
             </div>
         </div>
 
         <div class="footer">
-            <i class="fas fa-headphones-alt"></i> استمتع بزيارتك 
+            <i class="fas fa-headphones-alt"></i> استمتع بزيارتك
         </div>
     </div>
 
     <script>
-        // التحكم بالصوت (تشغيل/إيقاف)
+        // التحكم بالصوت
         const audio = document.getElementById('bgAudio');
         const playBtn = document.getElementById('playPauseBtn');
         const icon = playBtn.querySelector('i');
 
-        // محاولة التشغيل التلقائي (لن تعمل بسبب سياسات المتصفح، لكن الزر يعمل)
         audio.play().catch(() => {
-            // إذا منع المتصفح التشغيل، نضبط الزر على "تشغيل"
             icon.classList.remove('fa-pause');
             icon.classList.add('fa-play');
         });
 
-        // عند الضغط على الزر
         playBtn.addEventListener('click', function() {
             if (audio.paused) {
                 audio.play();
